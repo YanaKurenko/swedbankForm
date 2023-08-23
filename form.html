@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Swedbank apply for a credit card</title>
+  <link rel="stylesheet" href="css/form.css">
+</head>
+<body>
+  <div id="error" style="display: none; color: black;"></div>
+
+  <form id="questionnaireForm">
+
+    <div id="intro">
+      <h2>Apply for a credit card</h2>
+      <div class="btn-cont">
+        <button type="button" onclick="startQuestionnaire()">Apply</button>
+      </div>
+    </div>
+
+    <div class="" id="question1" style="display: none;">
+      <h3>What type of credit card would you like to apply for?</h3>
+      <div class="div-input">
+        <label><input type="radio" name="q1" value="Credit card with low-interest rates" required> Credit card with low-interest rates</label><br>
+        <label><input type="radio" name="q1" value="Credit card with cashback and rewards"> Credit card with cashback and rewards</label><br>
+        <label><input type="radio" name="q1" value="Credit card with no annual fee"> Credit card with no annual fee</label><br>
+        <label><input type="radio" name="q1" value="Credit card for travel and miles"> Credit card for travel and miles</label><br>
+      </div>
+      <div class="btn-cont">
+        <button type="button" onclick="nextQuestion()">Forward &#187;</button>
+      </div>
+    </div>
+
+    <div  id="question2" style="display: none;">
+      <h3>Select additional services you would like to add to your credit card:</h3>
+      <div class="div-input">
+        <label><input type="checkbox" name="q2" value="Fraud protection">Fraud protection</label><br>
+        <label><input type="checkbox" name="q2" value="Travel insurance">Travel insurance</label><br>
+        <label><input type="checkbox" name="q2" value="Loyalty program">Loyalty program</label><br>
+        <label><input type="checkbox" name="q2" value="Increased credit limit">Increased credit limit</label><br>
+      </div>
+      <div class="btn-cont">
+        <button class="backbutton" type="button" onclick="previousQuestion()">&#171; Back</button>
+        <button type="button" onclick="nextQuestion()">Forward &#187;</button>
+      </div>
+    </div>
+
+    <div class="section" id="question3" style="display: none;">
+      <h3>What is your monthly income?</h3>
+      <div class="div-input">
+        <select name="q3" required>
+          <option value="">-</option>
+          <option value="Less than $1000">Less than $1000</option>
+          <option value="$1000 - $2000">$1000 - $2000</option>
+          <option value="$2000 - $3000">$2000 - $3000</option>
+          <option value="More than $3000">More than $3000</option>
+        </select>
+      </div>
+      <div class="btn-cont">
+        <button class="backbutton" type="button" onclick="previousQuestion()">&#171; Back</button>
+        <button type="button" onclick="nextQuestion()">Forward &#187; </button>
+      </div>
+    </div>
+
+    <div id="question4" style="display: none;">
+      <h3>What is your preferred card expiration period?</h3>
+      <input type="number" name="q4" step="1" max="5" min="1" required><br>
+      <span class="question-mark" onclick="showTooltipModal()">?</span>
+      <div class="btn-cont">
+        <div id="tooltipModal" class="modal">
+          <div class="modal-content">
+            <p>Please, enter number of years</p>
+          </div>
+        </div>
+        <button class="backbutton" type="button" onclick="previousQuestion()">&#171; Back</button>
+        <button type="button" onclick="nextQuestion()">Forward &#187;</button>
+      </div>
+    </div>
+
+    <div id="question5" style="display: none;">
+      <h3>Please describe your main purpose for getting a credit card and how you plan to use it:</h3>
+      <textarea name="q5" rows="4" cols="50" required></textarea>
+      <div class="btn-cont">
+        <button class="backbutton" type="button" onclick="previousQuestion()">&#171; Back</button>
+        <button type="submit">Apply</button>
+      </div>
+    </div>
+
+    <div id="finalPart" style="display: none;">
+      <h2>Your application has been sent!</h2>
+      <div class="result">
+        <h4>Yours answers</h4>
+        <p><b>Type of credit card: </b><span id="resultQ1"></span></p>
+        <p><b>Additional services:</b> <span id="resultQ2"></span></p>
+        <p><b>Monthly income: </b><span id="resultQ3"></span></p>
+        <p><b>Card expiration period:</b> <span id="resultQ4"></span></p>
+        <p><b>Your main purpose:</b> <span id="resultQ5"></span></p>
+      </div>
+    </div>
+  </form>
+
+<script src="js/form.js"></script>
+
+</body>
+</html>
